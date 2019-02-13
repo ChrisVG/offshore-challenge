@@ -1,6 +1,20 @@
 package com.partnerships.interview.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ * Venue
+ *
+ * @author christian.valencia
+ * @since 02/13/2019
+ */
+@Entity(name = "venues")
 public class Venue {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String city;

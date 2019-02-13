@@ -1,18 +1,23 @@
 package com.partnerships.interview.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
-@Entity(name = "event")
+/**
+ * Event
+ *
+ * @author christian.valencia
+ * @since 02/13/2019
+ */
+@Entity(name = "events")
 public class Event {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Date date;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(unique = true)
     private Venue venue;
 
     public Integer getId() {
@@ -45,5 +50,15 @@ public class Event {
 
     public void setVenue(Venue venue) {
         this.venue = venue;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", venue=" + venue +
+                '}';
     }
 }
