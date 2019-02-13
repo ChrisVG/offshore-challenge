@@ -31,9 +31,7 @@ To check the database data use this link:
 | Password | Leave this empty |
 
 ### Docker
-This app is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+To install and deploy in a Docker container by default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
 
 ```sh
 docker build -t <<yourDockerUser>>/eventInterviewChallenge .
