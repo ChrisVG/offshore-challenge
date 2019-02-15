@@ -120,10 +120,8 @@ public class InterviewApplicationTests {
 
 	@Test
 	public void testEDeleteById() throws Exception {
-		System.out.println(this.ID_TO_DELETE);
 		mockMvc.perform(MockMvcRequestBuilders.delete("/events/{id}",ID_TO_DELETE))
 				.andExpect(status().isOk())
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
 				.andDo(print());
 	}
 

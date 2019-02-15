@@ -8,6 +8,7 @@ import com.partnerships.interview.repository.EventRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -78,7 +79,6 @@ public class EventController {
     @PutMapping
     public ResponseEntity<?> updateEvent(@RequestBody Event event) {
         try {
-            System.out.println(event);
             return ResponseEntity.ok(eventRepository.save(event));
         } catch (EventException e) {
             return ResponseEntity.badRequest().build();
@@ -91,7 +91,7 @@ public class EventController {
      * @param id
      * @return
      */
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<?> deleteEvent(@PathVariable(value = "id") Integer id) {
         try {
             eventRepository.delete(eventRepository.findById(id).orElseThrow(EventDeleteException::new));
